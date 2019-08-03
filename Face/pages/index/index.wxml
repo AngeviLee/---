@@ -1,0 +1,21 @@
+<view class="wrap">
+<!-- 照片预览区 -->
+<view class="avatar">
+  <image mode="aspectFill" src="{{ imgPath }}"></image>
+</view>
+<!-- 测试结果区 -->
+<view class="result">
+  <block wx:if="{{ face }}">
+    <view>年龄：{{ face.age }}</view>
+    <view>性别：{{ face.gender >50 ? '男' : '女' }}</view>
+    <view>颜值：{{ face.beauty }}</view>
+    <view>表情：
+      <text wx:if="{{ face.expression<=0 }}">僵尸脸</text>
+      <text wx:if="{{ face.expression<=50 && face.expression>=0 }}">微笑</text>
+      <text wx:if="{{ face.expression<=100 && face.expression>50 }}">喜开怀</text>
+    </view>
+  </block>
+</view>
+<!-- 上传按钮区 -->
+<button type="primary" class="btn" bind:tap="selectImage">上传图片</button>
+</view>
